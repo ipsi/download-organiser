@@ -1,0 +1,28 @@
+baseDir: /home/user/Downloads
+watchDir: new
+rules:
+  - regex: .*\.msi$
+    actions:
+      - move:
+          dest: "Application Installers"
+          duplicate: rename-date
+  - regex: ^(dtrpg|dtfiction)-\d{4}-\d{2}-\d{2}_\d{2}-\d{2}\w{2}\.zip$
+    actions:
+      - unzip:
+          dest: "dtrpg-new"
+      - delete
+  - regex: .*\.pdf$
+    actions:
+      - move:
+          dest: "PDFs"
+          duplicate: rename-date
+  - regex: .*\.iso$
+    actions:
+      - move:
+          dest: "ISOs"
+          duplicate: rename-date
+  - regex: .*\.azw3$
+    actions:
+      - move:
+          dest: "Encrypted Books"
+          duplicate: overwrite
